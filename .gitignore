@@ -220,3 +220,15 @@ __marimo__/
 
 #data 
 data/*
+
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+catboost_info/
