@@ -249,33 +249,9 @@ print(predictions)
 | Model Serialization | Pickle |
 | Development | Jupyter Notebook, VS Code |
 
-## ⚠️ Limitations & Considerations
-
-The current implementation has some limitations that should be considered when interpreting model performance.
-
-**1. Potential Target Leakage**
-
-The current-day `returns` feature contributes to the 7-day rolling volatility calculation. Additionally, lagged volatility features overlap with historical observations used in the target window.
-
-This may contribute to the relatively high R² scores.
-
-**2. Group-wise Feature Engineering**
-
-Rolling windows, lag features, and exponential moving averages should be calculated independently for each cryptocurrency using `groupby('crypto_name')` to prevent information from different cryptocurrencies from mixing.
-
-**3. Early Stopping and Evaluation**
-
-The test dataset is currently used as the early-stopping evaluation set. This can introduce optimistic bias into the reported test performance.
-
-A separate validation dataset is recommended.
-
-**4. Hyperparameter Optimization**
-
-The models were trained without extensive hyperparameter optimization.
 
 ## 🔮 Future Improvements
 
-- Implement leakage-safe target construction to predict future volatility.
 - Perform all rolling and lag calculations independently for each cryptocurrency.
 - Introduce walk-forward cross-validation.
 - Optimize hyperparameters using Optuna.
